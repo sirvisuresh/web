@@ -94,6 +94,41 @@ function add_image() {
        alert("Image added to Gallery successfully");
       // document.getElementById("form_id").submit();
 } 
+function update_image()
+{  var URL = document.getElementById("url1").value;
+   var Newurl = document.getElementById("newurl").value;
+   var Name = document.getElementById("name1").value;
+   var Info = document.getElementById("info1").value;
+   var date = document.getElementById("date1").value;
+    if(localStorage.getItem('pictures')!=null)
+      {
+        var images = JSON.parse(localStorage.getItem('pictures'));
+      }
+   var index = images.findIndex(function(item, i){
+    return item.src === URL;
+   });
+  images[index].src =Newurl;
+  images[index].name=Name;
+  images[index].info=Info;
+  images[index].date=date;
+  localStorage.setItem('pictures',JSON.stringify(images));
+  alert("Image modified successfully");
+}
+
+function remove_image()
+{
+  var URL = document.getElementById("url2").value;
+    if(localStorage.getItem('pictures')!=null)
+      {
+        var images = JSON.parse(localStorage.getItem('pictures'));
+      }
+   var index = images.findIndex(function(item, i){
+    return item.src === URL;
+   });
+  images.splice(index, 1);
+  localStorage.setItem('pictures',JSON.stringify(images));
+  alert("Image delete successfully");
+}
 function loadimage(photo){
   var l = photo.length;
     for(var i = 0; i < l; i++)
