@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery Admin</title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+      <div class="container">
+       <a href="index.html">Home</a>
+       <a href="aboutme.html">About Me</a>
+       <a href="contactme.html">Contact</a>
+       <a href="gallery.html">Gallery</a>
+       <a href="galleryadmin.html">Gallery Admin</a>
+      </div>
+      
+      <div id="gallery_form" class="hideform">
+       <button id="close" style="float: right;" onclick="pagehide()">X</button>
+       <form action="#" id="form_id">
+        Picture URL:<br>
+        <input type="text" name="picture" id="url">
+        <br><br>
+        Name:<br>
+        <input type="text" name="name" id="name">
+        <br><br>
+        Info:<br>
+        <input type="text" name="info" id="info">
+        <br><br>
+        Date:<br>
+        <input type="text" name="date" id="date">
+        <br><br>
+        <input type="submit" value="Submit" onclick="add_image()">
+       </form>
+      </div>
+
+      <div id="gallery_form1" class="hideform">
+       <button id="close" style="float: right;" onclick="pagehide1()">X</button>
+       <form action="#" id="form_id1">
+        Picture URL for Modification:<br>
+        <input type="text" name="picture" id="url">
+        <br><br>
+        Name:<br>
+        <input type="text" name="name" id="url">
+        <br><br>
+        Info:<br>
+        <input type="text" name="info" id="url">
+        <br><br>
+        Date:<br>
+        <input type="text" name="date" id="url">
+        <br><br>
+        <input type="submit" value="Submit" onclick="update_image()">
+       </form>
+      </div>
+
+
+      <div id="gallery_form2" class="hideform">
+       <button id="close" style="float: right;" onclick="pagehide2()">X</button>
+       <form action="#" id="form_id2">
+        Picture URL for Remove:<br>
+        <input type="text" name="picture" id="url">
+        <br>
+        <br><br>
+        <input type="submit" value="Submit" onclick="remove_image()">
+       </form>
+      </div>
+
+
+      <div class="btn-group" id="buttons">
+        <button id="show" onclick="showpage()">Add Picture</button>
+        <button id="show1" onclick="showpage1()">Modify Picture </button>
+        <button id="show2" onclick="showpage2()">Remove Picture</button>
+      </div>
+    <script src = "scripts/main.js">
+    </script>
+
+</body>
+</html>

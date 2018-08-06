@@ -1,0 +1,34 @@
+[{
+ 		"src": "images/third.jpg",
+ 		"alt": "Photo"
+ 	}, {
+ 		"src": "images/fourth.png",
+ 		"alt": "Photo"
+ 	},
+ 	{
+ 		"src": "images/seventh.jpeg",
+ 		"alt": "Photo"
+ 	}, {
+ 		"src": "images/first.jpg",
+ 		"alt": "Photo"
+ 	},
+ 	{
+ 		"src": "images/second.jpg",
+ 		"alt": "Photo"
+ 	}, {
+ 		"src": "images/eight.jpeg",
+ 		"alt": "Photo"
+ 	},
+ 	{
+ 		"src": "images/nine.jpg",
+ 		"alt": "Photo"
+ 	}, {
+ 		"src": "images/fifth.jpeg",
+ 		"alt": "Photo"
+ 	},
+ 	{
+ 		"src": "images/sixth.jpeg",
+ 		"alt": "Photo"
+ 	}
+
+ ]
