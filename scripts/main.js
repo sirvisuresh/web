@@ -1,6 +1,4 @@
-var images = [{
-    src: "images/third.jpg",alt: "Photo",name:"local", info:"fetched from local machine", update:"06/08/2018"
-  }, {
+var images = [ {
     src: "images/fourth.png",alt: "Photo",name:"local", info:"fetched from local machine", update:"06/08/2018"
   },
   {
@@ -35,8 +33,24 @@ function validateEmail(){
 
         return true;
     }
+    function isFutureDate(idate){
+    var today = new Date().getTime(),
+        idate = idate.split("-");
 
-
+    idate = new Date(idate[0], idate[1] - 1, idate[2]).getTime();
+    return (today - idate) < 0;
+     }
+    /* function validate_date(form)
+     {
+         var date = document.forms[form]["date"];
+         if(isFutureDate(date))
+          alert("enter correct date");
+     }
+     */
+function submit_contact_form()
+{  if(validateEmail())
+   document.getElementById("contact_form").submit();
+}
   function showpage()
      {  document.getElementById('gallery_form').style.display = "block";
         document.getElementById('buttons').style.display = "none";
@@ -85,13 +99,39 @@ function add_image() {
  var Name = document.getElementById("name").value;
  var Info = document.getElementById("info").value;
  var date = document.getElementById("date").value;
-      if(localStorage.getItem('pictures')!=null)
-      {
-        var images = JSON.parse(localStorage.getItem('pictures'));
+ var flag=false;
+ var regex = /((ftp|http|https):\/\/)?(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+ var nameregex = /^[a-zA-Z ]*$/;
+   var error ="";
+    if(regex.test(URL) == false)
+     {
+       error=error + "Enter correct URL\n";
+       flag=true;
+       }
+    if(nameregex.test(Name) == false)
+       {
+        error = error + "Enter correct Name\n";
+        flag=true;
+       }
+    if(isFutureDate(date))
+     { 
+     error=error + "Enter correct date,not a Future date\n";
+     flag=true;
       }
-       images.push({ src : URL, alt : "Photo", name : Name, info : Info, update : date });
-       localStorage.setItem('pictures',JSON.stringify(images));
+     if(flag==true)
+     {
+      alert(error);
+      return false;
+     }
+       var image=images;
+       if(localStorage.getItem('pictures')!==null)
+       {
+          image = JSON.parse(localStorage.getItem('pictures'));
+       }
+       image.push({ src : URL, alt : "Photo", name : Name, info : Info, update : date });
+       localStorage.setItem('pictures',JSON.stringify(image));
        alert("Image added to Gallery successfully");
+       document.getElementById("form_id").submit();
       // document.getElementById("form_id").submit();
 } 
 function update_image()
@@ -100,34 +140,38 @@ function update_image()
    var Name = document.getElementById("name1").value;
    var Info = document.getElementById("info1").value;
    var date = document.getElementById("date1").value;
+    var image = images;
     if(localStorage.getItem('pictures')!=null)
       {
-        var images = JSON.parse(localStorage.getItem('pictures'));
+        image = JSON.parse(localStorage.getItem('pictures'));
       }
-   var index = images.findIndex(function(item, i){
+   var index = image.findIndex(function(item, i){
     return item.src === URL;
    });
-  images[index].src =Newurl;
-  images[index].name=Name;
-  images[index].info=Info;
-  images[index].date=date;
-  localStorage.setItem('pictures',JSON.stringify(images));
+  image[index].src =Newurl;
+  image[index].name=Name;
+  image[index].info=Info;
+  image[index].date=date;
+  localStorage.setItem('pictures',JSON.stringify(image));
   alert("Image modified successfully");
+  document.getElementById("form_id1").submit();
 }
 
 function remove_image()
 {
   var URL = document.getElementById("url2").value;
+  var image = images;
     if(localStorage.getItem('pictures')!=null)
       {
-        var images = JSON.parse(localStorage.getItem('pictures'));
+         image = JSON.parse(localStorage.getItem('pictures'));
       }
-   var index = images.findIndex(function(item, i){
+   var index = image.findIndex(function(item, i){
     return item.src === URL;
    });
-  images.splice(index, 1);
-  localStorage.setItem('pictures',JSON.stringify(images));
+  image.splice(index, 1);
+  localStorage.setItem('pictures',JSON.stringify(image));
   alert("Image delete successfully");
+  document.getElementById("form_id2").submit();
 }
 function loadimage(photo){
   var l = photo.length;

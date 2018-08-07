@@ -15,54 +15,54 @@
       
       <div id="gallery_form" class="hideform">
        <button id="close" style="float: right;" onclick="pagehide()">X</button>
-       <form action="#" id="form_id">
+       <form action="#" id="form_id" onsubmit="return add_image()">
         Picture URL:<br>
         <input type="text" name="picture" id="url">
         <br><br>
         Name:<br>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
         <br><br>
         Info:<br>
-        <input type="text" name="info" id="info">
+        <input type="text" name="info" id="info" required>
         <br><br>
         Date:<br>
-        <input type="text" name="date" id="date">
+        <input type="date" name="date" id="date" required>
         <br><br>
-        <input type="submit" value="Submit" onclick="add_image()">
+        <input type="submit" value="Submit">
        </form>
       </div>
 
-      <div id="gallery_form1" class="hideform">
+      <div id="gallery_form1" class="hideform" onsubmit="update_image()">
        <button id="close" style="float: right;" onclick="pagehide1()">X</button>
        <form action="#" id="form_id1">
         Picture URL for Modification:<br>
-        <input type="text" name="picture" id="url1">
+        <input type="text" name="picture" id="url1" required
         <br><br>
         New URL for Modification:<br>
-        <input type="text" name="picture" id="newurl">
+        <input type="text" name="picture" id="newurl" required >
         <br><br>
         Name:<br>
-        <input type="text" name="name" id="name1">
+        <input type="text" name="name" id="name1" required>
         <br><br>
         Info:<br>
-        <input type="text" name="info" id="info1">
+        <input type="text" name="info" id="info1" required>
         <br><br>
         Date:<br>
-        <input type="text" name="date" id="date1">
+        <input type="text" name="date" id="date1" required >
         <br><br>
-        <input type="submit" value="Submit" onclick="update_image()">
+        <input type="submit" value="Submit">
        </form>
       </div>
 
 
       <div id="gallery_form2" class="hideform">
        <button id="close" style="float: right;" onclick="pagehide2()">X</button>
-       <form action="#" id="form_id2">
+       <form action="#" id="form_id2" onsubmit="remove_image()">
         Picture URL for Remove:<br>
-        <input type="text" name="picture" id="url2">
+        <input type="text" name="picture" id="url2" required >
         <br>
         <br><br>
-        <input type="submit" value="Submit" onclick="remove_image()">
+        <input type="submit" value="Submit">
        </form>
       </div>
 
